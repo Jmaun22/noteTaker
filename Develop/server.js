@@ -62,6 +62,29 @@ app.post("/api/notes", (req, res) => {
     res.json(dbNote);
   
 
+});
+
+
+// delteing notes
+
+app.delete("/api/notes/:id", (req, res) => {
+
+    let dbNote = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+    let notesid = req.params.id;
+    let noteid = 0;
+
+    dbNote = dbNote.filter(note => {
+        return note.id != notesid;
+    });
+
+    for (note of dbNote) {
+        note.id = noteid.toString();
+        noteid++;
+    }
+
+    fs.writeFileSync("./db/db.json", JSON.stringify(dbNote));
+    res.json(dbNote);
+
 })
 
 
