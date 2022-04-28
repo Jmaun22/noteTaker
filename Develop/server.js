@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded( {extended: true}));
 app.use(express.static("public"));
-
+app.use('/api', api);
 
 
 
@@ -33,59 +33,6 @@ app.get('/notes', (req, res) =>
     res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
-
-// read notes
-
-app.get('/api/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, "./db/db.json"));
-
-});
-
-// read each note that is saved
-
-app.get("api/notes/id", (req, res) => {
-    let notes = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-    res.json(notes[Number(req.params.id)]);
-})
-
-
-// saving notes
-
-app.post("/api/notes", (req, res) => {
-    let dbNote = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-    let writtenNote = req.body;
-    writtenNote.id = uuidv4();
-    dbNote.push(writtenNote);
-
-    fs.writeFileSync("./db/db.json", JSON.stringify(dbNote));
-    console.log('note saved');
-    res.json(dbNote);
-  
-
-});
-
-
-// delteing notes
-
-app.delete("/api/notes/:id", (req, res) => {
-
-    let dbNote = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
-    let notesid = req.params.id;
-    let noteid = 0;
-
-    dbNote = dbNote.filter(note => {
-        return note.id != notesid;
-    });
-
-    for (note of dbNote) {
-        note.id = noteid.toString();
-        noteid++;
-    }
-
-    fs.writeFileSync("./db/db.json", JSON.stringify(dbNote));
-    res.json(dbNote);
-
-})
 
 
 app.listen(PORT, () => 
