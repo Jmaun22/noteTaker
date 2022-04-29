@@ -16,9 +16,9 @@
     ## Description
     This is a note taker a simple website used to write down notes and save them so that you can rememebr them for later. Its simple and clean interface makes it easy to use and see all notes that have been created.
 
-    ## intallation 
+    ## link to live website 
 
-    (link to website)[https://immense-basin-73882.herokuapp.com/notes]
+    (website)[https://immense-basin-73882.herokuapp.com/notes]
 
 
     ## usage 
