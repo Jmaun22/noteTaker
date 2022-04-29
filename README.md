@@ -18,7 +18,9 @@
 
     ## link to live website 
 
-    (website)[https://immense-basin-73882.herokuapp.com/notes]
+    [website](https://immense-basin-73882.herokuapp.com/notes)
+    
+   
 
 
     ## usage 
