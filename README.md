@@ -19,6 +19,7 @@
     ## link to live website 
 
     [website](https://immense-basin-73882.herokuapp.com/notes)
+    ![image](https://github.com/Jmaun22/noteTaker/blob/91402704710e785632b15a5443b414f9edd2488a/Screen%20Shot%202022-04-29%20at%206.34.49%20PM.png)
     
    
 
